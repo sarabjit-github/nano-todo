@@ -1,0 +1,130 @@
+$day-color: #4191FD;
+$imp-color: #fc5454;
+$plan-color: #00C084;
+$task-color: #7B6BF4;
+
+.navbar{
+    margin: 1rem 1.5rem;
+}
+.n-comp1{
+    margin-bottom: 2rem;
+}
+.n-logo{
+    display: flex;
+    align-items: center;
+}
+.n-logo img{
+    width: 30px;
+    height: auto;
+    margin-right: .6rem;
+}
+.n-logo p{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.n-comp2{
+    margin-bottom: 2rem;
+}
+.n-search{
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 20px;
+    height: auto;
+    padding: .3rem;
+    border-radius: .3rem;
+    // background: rgba(128, 128, 128, 0.548);
+    cursor: pointer;
+    // font-size: 1.2rem;
+    transform: scale(1.8);
+}
+.n-search input{
+    width: 100%;
+    outline: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: .2rem solid gray;
+    transition: .3s;
+    background: rgba(255, 255, 255, 0.801);
+}
+ .n-search input:is(:hover, :focus){
+    border-bottom: .2rem solid black;
+    background: #fff;
+}
+.n-menus ul{
+    display: flex;
+    flex-direction: column;
+}
+.n-menus ul .a-tag{
+    margin-bottom: .8rem;
+    transition: .2s;
+    padding: 1.7rem 1.2rem;
+    // border: .2rem solid black;
+    border-radius: .5rem;
+
+   background: rgba(255, 255, 255, 0.8);
+   color: black;
+   transition: .4s;
+}
+// .n-menus li{
+
+// }
+.n-menus ul .a-tag:active{
+    transform: scale(.96);
+}
+.n-menus li{
+    list-style: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.menu-logo{
+    font-size: 1.7rem;
+    margin-right: 1rem;
+}
+.day .menu-logo{
+    color: $day-color;
+}
+.day.day.active {
+    // color: white;
+    background: $day-color;
+}
+.a-tag.active .menu-logo, .a-tag.active li{
+    color: white;
+}
+// .day.active{
+//     background: $day-color;
+// }
+.important .menu-logo{
+    color: $imp-color;
+}
+.important.important.active {
+ background: $imp-color;
+}
+.planned .menu-logo{
+    color: $plan-color;
+}
+.planned.planned.active {
+    background-color: $plan-color;
+}
+.tasks .menu-logo{
+    color: $task-color;
+}
+.tasks.tasks.active {
+    background-color: $task-color;
+}
+
+
+@media (max-width:1400px) {
+    .n-menus ul .a-tag{
+        padding: 1.4rem 1.2rem;
+    }
+    .n-menus li{
+        font-size: 1.02rem;
+    }
+}

@@ -1,0 +1,155 @@
+.navbar {
+  margin: 1rem 1.5rem;
+}
+
+.n-comp1 {
+  margin-bottom: 2rem;
+}
+
+.n-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.n-logo img {
+  width: 30px;
+  height: auto;
+  margin-right: .6rem;
+}
+
+.n-logo p {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.n-comp2 {
+  margin-bottom: 2rem;
+}
+
+.n-search {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 20px;
+  height: auto;
+  padding: .3rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  -webkit-transform: scale(1.8);
+          transform: scale(1.8);
+}
+
+.n-search input {
+  width: 100%;
+  outline: none;
+  border-radius: .5rem;
+  padding: 1rem;
+  border: none;
+  border-bottom: .2rem solid gray;
+  -webkit-transition: .3s;
+  transition: .3s;
+  background: rgba(255, 255, 255, 0.801);
+}
+
+.n-search input:is(:hover, :focus) {
+  border-bottom: .2rem solid black;
+  background: #fff;
+}
+
+.n-menus ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.n-menus ul .a-tag {
+  margin-bottom: .8rem;
+  -webkit-transition: .2s;
+  transition: .2s;
+  padding: 1.7rem 1.2rem;
+  border-radius: .5rem;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.n-menus ul .a-tag:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+}
+
+.n-menus li {
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-logo {
+  font-size: 1.7rem;
+  margin-right: 1rem;
+}
+
+.day .menu-logo {
+  color: #4191FD;
+}
+
+.day.day.active {
+  background: #4191FD;
+}
+
+.a-tag.active .menu-logo, .a-tag.active li {
+  color: white;
+}
+
+.important .menu-logo {
+  color: #fc5454;
+}
+
+.important.important.active {
+  background: #fc5454;
+}
+
+.planned .menu-logo {
+  color: #00C084;
+}
+
+.planned.planned.active {
+  background-color: #00C084;
+}
+
+.tasks .menu-logo {
+  color: #7B6BF4;
+}
+
+.tasks.tasks.active {
+  background-color: #7B6BF4;
+}
+
+@media (max-width: 1400px) {
+  .n-menus ul .a-tag {
+    padding: 1.4rem 1.2rem;
+  }
+  .n-menus li {
+    font-size: 1.02rem;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */

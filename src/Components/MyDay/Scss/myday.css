@@ -1,0 +1,355 @@
+.day-section {
+  background: -webkit-gradient(linear, left top, right bottom, from(#4191fd), to(#1abc9c));
+  background: linear-gradient(to right bottom, #4191fd, #1abc9c);
+  position: relative;
+}
+
+.day-time {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.day-time h1 {
+  font-weight: 600;
+  font-size: 1.9rem;
+  margin-bottom: 0.1rem;
+}
+
+.day-time p {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.day-time button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.4rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.day-time button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.day-time button:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+}
+
+.todos-section-container {
+  position: relative;
+  height: 84vh;
+}
+
+.todos-section {
+  margin-top: 2rem;
+  height: 100%;
+  max-height: 92.5%;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+}
+
+.todos-section::-webkit-scrollbar {
+  width: 4px;
+}
+
+.todos-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todos-section::-webkit-scrollbar-thumb {
+  background: rgba(34, 34, 34, 0.247);
+  border-radius: 0.3rem;
+}
+
+@media (max-height: 900px) {
+  .todos-section {
+    max-height: 90%;
+  }
+}
+
+@media (max-height: 850px) {
+  .todos-section {
+    max-height: 88%;
+  }
+}
+
+@media (max-height: 780px) {
+  .todos-section {
+    max-height: 86.5%;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-height: 720px) {
+  .todos-section {
+    max-height: 85.5%;
+  }
+}
+
+.todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.945);
+  border-radius: 0.3rem;
+  padding: 1rem 1.2rem;
+  padding-right: 0.34rem;
+  position: relative;
+}
+
+.todo-check-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-item:not(:last-child) {
+  margin-bottom: 0.2rem;
+}
+
+.todo-item:hover {
+  background: white;
+}
+
+.todo-checkbox input {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  outline: none;
+  border: none;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-title p {
+  font-size: 1.02rem;
+  letter-spacing: 0.015rem;
+  line-height: 1.3;
+  font-weight: 400;
+  color: black;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.todo-opt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.option {
+  font-size: 2.3rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.star-opt {
+  position: relative;
+  right: 0.02rem;
+  stroke: black;
+}
+
+.star-opt:hover {
+  fill: orange;
+}
+
+.delete-opt {
+  color: #da1c1c;
+}
+
+.delete-opt:hover {
+  background: rgba(218, 28, 28, 0.152);
+}
+
+.addTodo-section {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  padding: 2rem;
+  width: 100%;
+}
+
+.focus-day {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 25rem;
+  height: 22rem;
+  background-color: #00000011;
+  border-radius: 2rem;
+}
+
+.notepad {
+  position: relative;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -15%);
+          transform: translate(-50%, -15%);
+  width: 11rem;
+  height: 8rem;
+  background-color: white;
+  border-bottom-right-radius: 0.9rem;
+  border-bottom-left-radius: 0.9rem;
+}
+
+.notepad-top {
+  width: 100%;
+  height: 2rem;
+  background-color: #4368ed;
+  position: relative;
+}
+
+.notepad-top span,
+.notepad-top span:first-child {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #d35d27;
+  position: absolute;
+  left: 3%;
+  top: 22%;
+}
+
+.notepad-top span:nth-child(2) {
+  background-color: #25d45f;
+  left: 15%;
+}
+
+.notepad-top span:nth-child(3) {
+  background-color: #d425b7;
+  left: 27%;
+}
+
+.notepad-bottom {
+  position: relative;
+  top: 10%;
+  /* background-color: rgb(216, 27, 20); */
+  width: 80%;
+  margin: auto;
+}
+
+.notepad-bottom hr {
+  margin: 1rem 0;
+}
+
+.focusDay-heading {
+  width: 90%;
+  margin: auto;
+  position: relative;
+  top: 13%;
+  text-align: center;
+}
+
+.focusDay-heading h1 {
+  line-height: 2.5;
+  font-size: 2.2rem;
+  color: white;
+  font-weight: 500;
+}
+
+.focusDay-heading p {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.day-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.day-side p {
+  margin-right: 1rem;
+  color: #292929;
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+
+.hamburger-menu {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 1rem;
+  cursor: pointer;
+  padding: .7rem .6rem;
+  border-radius: 5px;
+}
+
+.hamburger-menu:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.hamburger-menu div {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: black;
+}
+
+.hamburger-menu div:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.t-add {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  background: #00000012;
+  /* padding: 0.1rem; */
+  width: 19px;
+  height: 20px;
+  border-radius: 2px;
+  padding-bottom: -25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .hamburger-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=myday.css.map */

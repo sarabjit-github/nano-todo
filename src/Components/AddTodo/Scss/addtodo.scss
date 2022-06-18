@@ -1,0 +1,30 @@
+.addtodo-sec{
+    color: black;
+    width: 100%;
+    // background: red;
+}
+.addtodo-sec input{
+    width: 100%;
+    border-radius: .2rem;
+    padding: 1rem;
+    padding-left: 3rem;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+}
+.addtodo-container{
+    position: relative;
+}
+.t-circle{
+    position: absolute;
+    width: 1.3rem;
+    height: 1.3rem;
+    background: transparent;
+    border: .2rem solid gray;
+    border-radius: 50%;
+    top: 1.1rem;
+    left: 1rem;
+}
+.addtodo-sec input:is(:hover, :focus){
+    background: rgba(255, 255, 255, 0.938);
+}
