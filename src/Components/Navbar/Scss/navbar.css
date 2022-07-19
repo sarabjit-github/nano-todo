@@ -82,13 +82,13 @@
   border-radius: .5rem;
   background: rgba(255, 255, 255, 0.8);
   color: black;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: all ease-in-out .15s;
+  transition: all ease-in-out .15s;
 }
 
 .n-menus ul .a-tag:active {
-  -webkit-transform: scale(0.96);
-          transform: scale(0.96);
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .n-menus li {

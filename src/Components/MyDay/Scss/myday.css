@@ -177,7 +177,27 @@
 .star-opt {
   position: relative;
   right: 0.02rem;
-  stroke: black;
+  fill: #878787;
+  -webkit-transition: all ease-in-out .1s;
+  transition: all ease-in-out .1s;
+}
+
+.star-opt:active {
+  -webkit-transform: scale(1.55);
+          transform: scale(1.55);
+}
+
+.star-opt-active {
+  position: relative;
+  right: 0.02rem;
+  fill: orange;
+  -webkit-transition: all ease-in-out .1s;
+  transition: all ease-in-out .1s;
+}
+
+.star-opt-active:active {
+  -webkit-transform: scale(1.55);
+          transform: scale(1.55);
 }
 
 .star-opt:hover {

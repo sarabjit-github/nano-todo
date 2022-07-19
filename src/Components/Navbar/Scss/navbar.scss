@@ -68,13 +68,13 @@ $task-color: #7B6BF4;
 
    background: rgba(255, 255, 255, 0.8);
    color: black;
-   transition: .4s;
+   transition: all ease-in-out .15s;
 }
 // .n-menus li{
 
 // }
 .n-menus ul .a-tag:active{
-    transform: scale(.96);
+    transform: scale(.95);
 }
 .n-menus li{
     list-style: none;

@@ -1,9 +1,25 @@
 import "./Scss/App.css";
 import { Navbar, Myday, Important, Planned, Tasks } from "./Components";
 import { Routes, Route } from "react-router";
-import { useState, useLayoutEffect  } from "react";
+import { useState, useLayoutEffect, createContext  } from "react";
+
+  // function for get Local data
+  const getLocalData = () => {
+    let todos = localStorage.getItem("todos");
+    // console.log(todos);
+    if (todos) {
+      return JSON.parse(localStorage.getItem("todos"));
+    } else {
+      return [];
+    }
+  };
+
+export const AllTodos = createContext();
 
 function App() {
+
+  const [allTodos, setAllTodos] = useState(getLocalData())
+
 
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [navDisplay, setNavDisplay] = useState(false);
@@ -27,6 +43,7 @@ useLayoutEffect(() => {
 
   return (
     <>
+    <AllTodos.Provider value={{allTodos, setAllTodos}}>
       <div className="App">
         <nav className="side-nav"
          style={{ left:  windowSize > 1024 || navDisplay ? "0":"-28rem" }}
@@ -51,6 +68,7 @@ useLayoutEffect(() => {
           </div>
         </main>
       </div>
+      </AllTodos.Provider>
     </>
   );
 }

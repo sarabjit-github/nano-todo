@@ -10,6 +10,24 @@
   text-shadow: none;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: teal;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px;
+  background: rgba(255, 255, 255, 0.217);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.297);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(255, 255, 255, 0.473);
+}
+
 html {
   font-size: 14px;
 }

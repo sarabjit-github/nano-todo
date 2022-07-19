@@ -12,6 +12,28 @@
   text-shadow: none;
 }
 
+// Change Scroll-bar
+::-webkit-scrollbar{
+  width: 8px;
+  // background: rgba(0, 0, 0, 0.517);
+  background: teal;
+  // border: 1px solid rgba(255, 255, 255, 0.157);
+}
+::-webkit-scrollbar-thumb{
+  width: 8px;
+  background: rgba(255, 255, 255, 0.217);
+  &:hover{
+    background: rgba(255, 255, 255, 0.297);
+  }
+  &:active{
+    background-color: rgba(255, 255, 255, 0.473);
+  }
+}
+// ::-webkit-scrollbar-track{
+//   width: 5px;
+//   // background: white;
+// }
+
 html {
   font-size: 14px;
 }

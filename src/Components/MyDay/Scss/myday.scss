@@ -141,10 +141,25 @@ $day-color: #4191fd;
 .star-opt {
   position: relative;
   right: 0.02rem;
-  stroke: rgb(0, 0, 0);
+  fill: #878787;
+  // stroke: rgb(0, 0, 0);
+  transition: all ease-in-out .1s;
+  &:active{
+    transform: scale(1.55);
+  }
+}
+.star-opt-active{
+  position: relative;
+  right: 0.02rem;
+  fill: orange;
+  transition: all ease-in-out .1s;
+  &:active{
+    transform: scale(1.55);
+  }
 }
 .star-opt:hover {
   fill: orange;
+  
   // stroke: none;
 }
 .delete-opt {

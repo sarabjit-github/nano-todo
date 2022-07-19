@@ -1,75 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Scss/myday.css";
 import { AddTodo } from "../AddTodo/AddTodo";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BiStar } from "react-icons/bi";
+import { FaStar } from "react-icons/fa";
 import moment from "moment";
+import { AllTodos } from "../../App";
 
 // function for get Local data
-const getLocalData = () => {
-  let todos = localStorage.getItem("todos");
-  console.log(todos);
-  if (todos) {
-    return JSON.parse(localStorage.getItem("todos"));
-  } else {
-    return [];
-  }
-};
+// const getLocalData = () => {
+//   let todos = localStorage.getItem("todos");
+//   // console.log(todos);
+//   if (todos) {
+//     return JSON.parse(localStorage.getItem("todos"));
+//   } else {
+//     return [];
+//   }
+// };
+
 
 export const Myday = (props) => {
+
+  const contextTodos = useContext(AllTodos);
+  let allTodos = contextTodos.allTodos;
+  let setAllTodos = contextTodos.setAllTodos;
+  let allDayTodos = allTodos.filter((todo)=>{
+    return todo.isDay === true;
+  })
+
   const [todoTitle, setTodoTitle] = useState("");
-  const [allTodos, setAllTodos] = useState(getLocalData());
+  const [dayTodos, setDayTodos] = useState(allDayTodos);
+  // const [allTodos, setAllTodos] = useState(getLocalData());
 
-  // let handleCallback = (todo) => {
-  //   setTodoTitle(todo);
-  // //  let newTodo = {
-  // //   id: allTodos.length +1,
-  // //   task: todoTitle,
-  // //   complete: false
-  // //  }
-  // //  let newTodos = allTodos.push(newTodo);
-  // //  console.log(newTodos)
-  // console.log(todoTitle)
-  // };
+  // console.log(dayTodos);
 
-  let completeTask = (myTodo) => {
-    let mapped = allTodos.map((todo) => {
-      return myTodo.id === todo.id
-        ? { ...todo, complete: !todo.complete }
-        : { ...todo };
-    });
-    setAllTodos(mapped);
-    // console.log(mapped);
-  };
-  let clearCompletedTodos = () => {
-    let inCompleteTodos = allTodos.filter((myTodo) => {
-      return myTodo.complete === false;
-    });
-    setAllTodos(inCompleteTodos);
-  };
+  // console.log(allTodos)
 
-  let deleteTodo = (todo) => {
-    let notDeletedTodos = allTodos.filter((myTodo) => {
-      return todo.id !== myTodo.id;
-    });
-    // console.log(notDeletedTodos)
-    if (window.confirm("Are you really want to delete this task?")) {
-      setAllTodos(notDeletedTodos);
-    } else {
-      // setAllTodos(!notDeletedTodos)
-    }
-  };
+
+
+  // Handle for addTodo
   const handleAddTodo = () => {
     if (todoTitle !== "") {
       let newTodo = {
-        id: allTodos.length + 1,
+        id: Date.now(),
         task: todoTitle,
         complete: false,
+        isImportant: false,
+        isDay: true,
       };
 
       // let localTodo = localStorage.getItem("todo");
+      let newDayTodos = [...dayTodos, newTodo]
       let newAllTodos = [...allTodos, newTodo];
       // console.log(localTodo)
+      setDayTodos(newDayTodos);
       setAllTodos(newAllTodos);
       setTodoTitle("");
       // console.log(getLocalData())
@@ -77,18 +60,78 @@ export const Myday = (props) => {
       alert("Please fill the input value first");
     }
   };
-  let onTrigger = (e) => {
-    if (e.keyCode === 13) {
-      handleAddTodo();
+
+  // Toggle between complete task
+  let toggleCompleteTask = (myTodo) => {
+    let mapped = allTodos.map((todo) => {
+      return myTodo.id === todo.id
+        ? { ...todo, complete: !todo.complete }
+        : { ...todo };
+    });
+    let newDayTodos = mapped.filter((todo)=>{
+      return todo.isDay === true;
+    })
+    setDayTodos(newDayTodos);
+    setAllTodos(mapped);
+    // console.log(mapped);
+  };
+  // Toggle b/w important task
+  let toggleImportantTask = (myTodo)=>{
+    let mapped = allTodos.map((todo)=>{
+      return myTodo.id === todo.id
+      ? { ...todo, isImportant: !todo.isImportant }
+      : { ...todo };
+    });
+    // let newDayTodos = [...mapped, ...dayTodos ];
+    let newDayTodos = mapped.filter((todo)=>{
+      return todo.isDay === true;
+    })
+    // let newAllTodos = [...all]
+    setDayTodos(newDayTodos);
+    setAllTodos(mapped);
+  }
+  // clear completed todos with one click
+  let clearCompletedTodos = () => {
+    let inCompleteTodos = allTodos.filter((myTodo) => {
+      return myTodo.complete === false;
+    });
+    let newDayTodos = inCompleteTodos.filter((todo)=>{
+      return todo.isDay === true;
+    })
+    setDayTodos(newDayTodos);
+    setAllTodos(inCompleteTodos);
+  };
+  // Delete particular todo
+  let deleteTodo = (todo) => {
+    let notDeletedTodos = allTodos.filter((myTodo) => {
+      return todo.id !== myTodo.id;
+    });
+    let newDayTodos = notDeletedTodos.filter((todo)=>{
+      return todo.isDay === true;
+    })
+    // console.log(notDeletedTodos)
+    if (window.confirm("Are you really want to delete this task?")) {
+      setDayTodos(newDayTodos);
+      setAllTodos(notDeletedTodos);
+    } else {
+      // setAllTodos(!notDeletedTodos)
     }
   };
+
+
+  // let onTrigger = (e) => {
+  //   if (e.keyCode === 13) {
+  //     handleAddTodo();
+  //   }
+  // };
 
   // add Todos into localStorage
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(allTodos));
   }, [allTodos]);
 
-  let inCompleteTodos = allTodos.filter((myTodo) => {
+
+  let inCompleteTodos = dayTodos.filter((myTodo) => {
     return myTodo.complete === false;
   });
 
@@ -124,8 +167,8 @@ export const Myday = (props) => {
         </div>
         <div className="todos-section-container">
           <div className="todos-section">
-            {allTodos.length !== 0 ? (
-              allTodos.map((todo) => {
+            {dayTodos.length !== 0 ? (
+              dayTodos.map((todo) => {
                 return (
                   <div className="todo-item" key={todo.id}>
                     <div className="todo-check-item">
@@ -136,7 +179,7 @@ export const Myday = (props) => {
                           name="checkTodo"
                           id="checkTodo"
                           title="Complete task"
-                          onClick={() => completeTask(todo)}
+                          onClick={() => toggleCompleteTask(todo)}
                         />
                       </div>
                       <div className="todo-title">
@@ -147,7 +190,7 @@ export const Myday = (props) => {
                     </div>
 
                     <div className="todo-opt">
-                      <BiStar className="option star-opt" />
+                      <FaStar className={todo.isImportant ? "option star-opt-active":"option star-opt"} onClick={()=>toggleImportantTask(todo)} />
                       <AiOutlineDelete
                         className="option delete-opt"
                         title="Delete task"
@@ -184,9 +227,8 @@ export const Myday = (props) => {
           </div>
         </div>
         <div className="addTodo-section">
-          {/* <AddTodo parentCallback={handleCallback} /> */}
-          <section className="addtodo-sec">
-            {/* <h1>Add a Task</h1> */}
+          <AddTodo getTodoTitle={setTodoTitle} addTodoFn={handleAddTodo} />
+          {/* <section className="addtodo-sec">
             <div className="addtodo-container">
               <div className="t-circle"></div>
               <input
@@ -200,7 +242,7 @@ export const Myday = (props) => {
                 +
               </div>
             </div>
-          </section>
+          </section> */}
         </div>
       </section>
     </>
