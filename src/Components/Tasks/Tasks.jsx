@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./Scss/tasks.css";
 import { AddTodo } from "../AddTodo/AddTodo";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineHome } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import { AllTodos } from "../../App";
 
@@ -43,7 +43,7 @@ export const Tasks = (props) => {
   return (
     <section className="section tasks-section">
       <div className="day-time">
-        <h1>Tasks</h1>
+        <h1><AiOutlineHome className="imp-str" />Tasks</h1>
         <div className="hamburger-menu" title="Menu" onClick={triggerHam}>
           <div></div>
           <div></div>
